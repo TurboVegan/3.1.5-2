@@ -39,8 +39,8 @@ public class UsersService {
         return foundPerson.orElse(null);
     }
 
-    @javax.transaction.Transactional
-    public void register(User user) {
+    @Transactional
+    public void save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         usersRepository.save(user);
     }
